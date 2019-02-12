@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    //定义删除的函数
+    function confirmDel($id)
+    {
+        if(window.confirm("你确定要删除吗？")){
+            //跳转至删除页面
+            location.href = "?c=Index&a=delete&id="+$id;
+        }
+    }
+
+</script>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>salary</th>
+        <th>data</th>
+        <th>操作</th>
+    </tr>
+    <{foreach $arrs as $arr}>
+    <tr>
+        <td><{$arr.id}></td>
+        <td><{$arr.name}></td>
+        <td><{$arr.salary}></td>
+        <td><{$arr.data}></td>
+        <td><a href="javascript:void(0)" onclick="confirmDel(<{$arr.id}>)">删除</a></td>
+    </tr>
+<{/foreach}>
+</table>
+<h1>this is test</h1>
+</body>
+</html>
